@@ -4,11 +4,20 @@ import Language.Haskell.TH
 import Control.Monad
 
 
-curry' :: ((a, b) -> c) -> a -> b -> c
-curry' = \f a b -> f (a, b)
-
-curryN :: Int -> Q Exp
-curryN n = do
-    let names = map (\n -> mkName $ 'a' : show n) [1..n]
+curryN :: Quote m => Int -> m Exp
+curryN n
+  | n < 2 = error "n should be greater or equal to 2"
+  | otherwise = lamE (map varP $ func : names) $ appE (varE func) (tupE $ map varE names)
+  where names = map (\n -> mkName $ 'a' : show n) [1..n]
         func = mkName "f"
-    return $ LamE (map VarP $ func : names) $ AppE (VarE func) (TupE $ map (VarE) names)
+
+
+genCurries :: Int -> Q [Dec]
+genCurries n
+  | n < 2 = error "n should be greater or equal to 2"
+  | otherwise = mapM f [2..n]
+  where
+    f :: Quote m => Int -> m Dec
+    f n = valD (varP name) (normalB $ curryN n) []
+      where name = mkName $ "curry" ++ show n
+      

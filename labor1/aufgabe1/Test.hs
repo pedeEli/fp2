@@ -4,4 +4,7 @@ module Test where
 import CurryN
 
 
-test = $(curryN 3)
+foo :: (Int, Int, Int) -> Int
+foo (a, b, c) = a + b + c
+
+$(genCurries 10)
