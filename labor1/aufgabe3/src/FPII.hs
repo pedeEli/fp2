@@ -41,20 +41,20 @@ quickSort (x:xs) = append x lessers greaters
 
 {-@ append :: x:a -> SortedList {lesser:a | lesser < x} -> SortedList {greater:a | greater > x} -> SortedList a @-}
 append :: a -> SortedList a -> SortedList a -> SortedList a
-append z Emp       ys = Cons z ys
+append z Emp ys = Cons z ys
 append z (Cons x xs) ys = Cons x $ append z xs ys
 
 
 
 
 merge :: (Ord a) => SortedList a -> SortedList a -> SortedList a
-merge xs  Emp = xs
-merge Emp ys  = ys
+merge Emp Emp = Emp
+merge (Cons x xs)  Emp = Cons x xs
+merge Emp (Cons y ys)  = Cons y ys
 merge (Cons x xs) (Cons y ys)
   | x < y     = Cons x $ merge xs (Cons y ys)
   | x > y     = Cons y $ merge (Cons x xs) ys
   | otherwise = Cons x $ merge xs ys
-merge _ _     = Emp
 
 
 split          :: [a] -> ([a], [a])
