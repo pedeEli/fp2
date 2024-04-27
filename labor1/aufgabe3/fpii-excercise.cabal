@@ -19,10 +19,10 @@ maintainer:         74102959+pedeEli@users.noreply.github.com
 extra-source-files: CHANGELOG.md
 
 executable fpii-excercise
-    main-is:          Main.hs
+    main-is:          FPII.hs
 
-    Modules included in this executable, other than Main.
-    other-modules:    FPII
+    -- Modules included in this executable, other than Main.
+    -- other-modules:
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
