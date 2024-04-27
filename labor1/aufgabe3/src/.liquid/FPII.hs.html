@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title>D:\haskell\fp2\labor1\aufgabe3\src\FPII.hs</title>
+</head>
+<head>
+<link type='text/css' rel='stylesheet' href='liquid.css' />
+</head>
+
+<body>
+<hr>
+Put mouse over identifiers to see inferred types
+<pre><span class=hs-linenum> 1: </span><a class=annot href="#"><span class=annottext>GHC.Types.Module</span><span class='hs-keyword'>{-@</span></a> <span class='hs-conid'>LIQUID</span> <span class='hs-str'>"--no-termination"</span> <span class='hs-keyword'>@-}</span>
+<span class=hs-linenum> 2: </span>
+<span class=hs-linenum> 3: </span><span class='hs-keyword'>module</span> <span class='hs-conid'>FPII</span> <span class='hs-keyword'>where</span>
+<span class=hs-linenum> 4: </span>
+<span class=hs-linenum> 5: </span><span class='hs-keyword'>{-@</span> <span class='hs-keyword'>data</span> <span class='hs-conid'>SortedList</span> <span class='hs-varid'>a</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>Emp</span> <span class='hs-keyglyph'>|</span> <span class='hs-conid'>Cons</span> <span class='hs-layout'>{</span> <span class='hs-varid'>hd</span> <span class='hs-keyglyph'>::</span> <span class='hs-varid'>a</span><span class='hs-layout'>,</span> <span class='hs-varid'>tl</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>SortedList</span> <span class='hs-layout'>{</span><span class='hs-varid'>v</span><span class='hs-conop'>:</span><span class='hs-varid'>a</span> <span class='hs-keyglyph'>|</span> <span class='hs-varid'>v</span> <span class='hs-varop'>&gt;</span> <span class='hs-varid'>hd</span><span class='hs-layout'>}</span><span class='hs-layout'>}</span> <span class='hs-keyword'>@-}</span>
+<span class=hs-linenum> 6: </span><span class='hs-keyword'>data</span> <span class='hs-conid'>SortedList</span> <span class='hs-varid'>a</span> <span class='hs-keyglyph'>=</span>
+<span class=hs-linenum> 7: </span>  <span class='hs-conid'>Emp</span> <span class='hs-keyglyph'>|</span> <span class='hs-conid'>Cons</span> <span class='hs-layout'>{</span> <span class='hs-varid'>hd</span> <span class='hs-keyglyph'>::</span> <span class='hs-varid'>a</span><span class='hs-layout'>,</span> <span class='hs-varid'>tl</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>SortedList</span> <span class='hs-varid'>a</span> <span class='hs-layout'>}</span>
+<span class=hs-linenum> 8: </span>  <span class='hs-keyword'>deriving</span> <span class='hs-layout'>(</span><span class='hs-conid'>Eq</span><span class='hs-layout'>,</span> <span class='hs-conid'>Show</span><span class='hs-layout'>)</span>
+<span class=hs-linenum> 9: </span>
+<span class=hs-linenum>10: </span><span class='hs-definition'>testListSuc</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>SortedList</span> <span class='hs-conid'>Int</span>
+<span class=hs-linenum>11: </span><a class=annot href="#"><span class=annottext>(FPII.SortedList GHC.Types.Int)</span><span class='hs-definition'>testListSuc</span></a> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>Cons</span> <a class=annot href="#"><span class=annottext>GHC.Types.Int</span><span class='hs-num'>1</span></a> <a class=annot href="#"><span class=annottext>(FPII.SortedList GHC.Types.Int)</span><span class='hs-layout'>(</span></a><span class='hs-conid'>Cons</span> <a class=annot href="#"><span class=annottext>GHC.Types.Int</span><span class='hs-num'>2</span></a> <a class=annot href="#"><span class=annottext>(FPII.SortedList GHC.Types.Int)</span><span class='hs-layout'>(</span></a><span class='hs-conid'>Cons</span> <a class=annot href="#"><span class=annottext>GHC.Types.Int</span><span class='hs-num'>3</span></a> <a class=annot href="#"><span class=annottext>{VV : forall a . (FPII.SortedList a) | VV == Emp}</span><span class='hs-conid'>Emp</span></a><span class='hs-layout'>)</span><span class='hs-layout'>)</span>
+<span class=hs-linenum>12: </span>
+<span class=hs-linenum>13: </span><span class='hs-definition'>testListFail</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>SortedList</span> <span class='hs-conid'>Int</span>
+<span class=hs-linenum>14: </span><a class=annot href="#"><span class=annottext>(FPII.SortedList GHC.Types.Int)</span><span class='hs-definition'>testListFail</span></a> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>Cons</span> <a class=annot href="#"><span class=annottext>GHC.Types.Int</span><span class='hs-num'>1</span></a> <a class=annot href="#"><span class=annottext>(FPII.SortedList GHC.Types.Int)</span><span class='hs-layout'>(</span></a><span class='hs-conid'>Cons</span> <a class=annot href="#"><span class=annottext>GHC.Types.Int</span><span class='hs-num'>3</span></a> <a class=annot href="#"><span class=annottext>(FPII.SortedList GHC.Types.Int)</span><span class='hs-layout'>(</span></a><span class='hs-conid'>Cons</span> <a class=annot href="#"><span class=annottext>GHC.Types.Int</span><span class='hs-num'>10</span></a> <a class=annot href="#"><span class=annottext>{VV : forall a . (FPII.SortedList a) | VV == Emp}</span><span class='hs-conid'>Emp</span></a><span class='hs-layout'>)</span><span class='hs-layout'>)</span>
+<span class=hs-linenum>15: </span>
+<span class=hs-linenum>16: </span><span class='hs-comment'>-- implement insertion sort with explicit recursion</span>
+<span class=hs-linenum>17: </span><span class='hs-definition'>insertionSort</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>Ord</span> <span class='hs-varid'>a</span> <span class='hs-keyglyph'>=&gt;</span> <span class='hs-keyglyph'>[</span><span class='hs-varid'>a</span><span class='hs-keyglyph'>]</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>SortedList</span> <span class='hs-varid'>a</span>
+<span class=hs-linenum>18: </span><a class=annot href="#"><span class=annottext>forall a . (GHC.Classes.Ord&lt;[]&gt; a) =&gt; [a] -&gt; (FPII.SortedList a)</span><span class='hs-definition'>insertionSort</span></a> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>undefined</span>
+<span class=hs-linenum>19: </span>
+<span class=hs-linenum>20: </span><span class='hs-comment'>-- use a suitable higher order function for the same algorithm</span>
+<span class=hs-linenum>21: </span><span class='hs-definition'>insertionSort'</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>Ord</span> <span class='hs-varid'>a</span> <span class='hs-keyglyph'>=&gt;</span> <span class='hs-keyglyph'>[</span><span class='hs-varid'>a</span><span class='hs-keyglyph'>]</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>SortedList</span> <span class='hs-varid'>a</span>
+<span class=hs-linenum>22: </span><a class=annot href="#"><span class=annottext>forall a . (GHC.Classes.Ord&lt;[]&gt; a) =&gt; [a] -&gt; (FPII.SortedList a)</span><span class='hs-definition'>insertionSort'</span></a> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>undefined</span>
+<span class=hs-linenum>23: </span>
+<span class=hs-linenum>24: </span><span class='hs-definition'>quickSort</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>Ord</span> <span class='hs-varid'>a</span> <span class='hs-keyglyph'>=&gt;</span> <span class='hs-keyglyph'>[</span><span class='hs-varid'>a</span><span class='hs-keyglyph'>]</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>SortedList</span> <span class='hs-varid'>a</span>
+<span class=hs-linenum>25: </span><a class=annot href="#"><span class=annottext>forall a . (GHC.Classes.Ord&lt;[]&gt; a) =&gt; [a] -&gt; (FPII.SortedList a)</span><span class='hs-definition'>quickSort</span></a> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>undefined</span>
+<span class=hs-linenum>26: </span>
+<span class=hs-linenum>27: </span><span class='hs-definition'>mergeSort</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>Ord</span> <span class='hs-varid'>a</span> <span class='hs-keyglyph'>=&gt;</span> <span class='hs-keyglyph'>[</span><span class='hs-varid'>a</span><span class='hs-keyglyph'>]</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>SortedList</span> <span class='hs-varid'>a</span>
+<span class=hs-linenum>28: </span><a class=annot href="#"><span class=annottext>forall a . (GHC.Classes.Ord&lt;[]&gt; a) =&gt; [a] -&gt; (FPII.SortedList a)</span><span class='hs-definition'>mergeSort</span></a> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>undefined</span></pre>
+</body>
+</html>
